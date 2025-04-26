@@ -1,0 +1,15 @@
+{
+  "clangd.arguments": [
+    "--compile-commands-dir=${workspaceFolder}",
+    // "--completion-style=detailed",
+    "--log=info",
+    // "--log=verbose",
+    "--header-insertion=iwyu",
+    "--header-insertion-decorators",
+    "-j=8"
+    // "--query-driver=**"
+  ],
+  "iwyu.compile_commands": "${workspaceFolder}/compile_commands.json",
+  // "clangd.path": "/Users/kon/proj/llvm-project/build-clang-tools-extra-release/bin/clangd",
+  "clangd.path": "/Users/kon/proj/llvm-project/build-clang-tools-extra-release-pgo/tools/clang/stage2-instrumented-bins/tools/clang/stage2-bins/bin/clangd"
+}

@@ -1,0 +1,23 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "(lldb) Launch",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/bazel-bin/{{template.project_name}}/hello_world",
+      "args": [ ],
+      "cwd": "${workspaceFolder}/bazel-bin/{{template.project_name}}/hello_world.runfiles/_main",
+      // "console": "internalConsole",
+      "sourceMap": {
+        // https://github.com/vadimcn/codelldb/discussions/517
+        "proc/self/cwd": "{workspaceFolder}",
+        ".": "${workspaceFolder}"
+        // "./external": "${workspaceFolder}/bazel-{{template.project_name}}/external"
+      }
+    }
+  ]
+}

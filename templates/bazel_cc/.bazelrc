@@ -1,0 +1,46 @@
+common --experimental_ui_max_stdouterr_bytes=-1
+
+# Basic build settings
+build --define='absl=1' # for gtest
+build --enable_platform_specific_config
+build --incompatible_enable_cc_toolchain_resolution
+
+build --enable_runfiles
+
+build --incompatible_strict_action_env
+run --incompatible_strict_action_env
+test --incompatible_strict_action_env
+
+build --features=header_modules
+build --features=layering_check
+build --features=parse_headers
+
+# Enable stack traces
+test --test_env="GTEST_INSTALL_FAILURE_SIGNAL_HANDLER=1"
+
+# Linux
+build:linux --cxxopt=-std=c++20
+build:linux --host_cxxopt=-std=c++20
+
+# windows
+build:windows --cxxopt=/std:c++20
+build:windows --host_cxxopt=/std:c++20
+# For using M_* math constants on Windows with MSVC.
+build:windows --copt=/D_USE_MATH_DEFINES
+build:windows --host_copt=/D_USE_MATH_DEFINES
+
+# macOS
+build:macos --cxxopt=-std=c++20
+build:macos --host_cxxopt=-std=c++20
+
+# Sets the default Apple platform to macOS.
+build --apple_platform_type=macos
+
+# Compile ObjC++ files with C++20
+build --per_file_copt=.*\.mm\$@-std=c++20
+
+# Allow debugging with XCODE
+build --apple_generate_dsym
+
+# This bazelrc file can be used for user-specific custom build settings.
+try-import %workspace%/.user.bazelrc

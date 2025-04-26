@@ -1,0 +1,12 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+licenses(["notice"])  # Apache License 2.0
+
+cc_library(
+    name = "perfetto",
+    srcs = ["sdk/perfetto.cc"],
+    hdrs = ["sdk/perfetto.h"],
+    include_prefix = "third_party/perfetto",
+    strip_include_prefix = "sdk",
+    visibility = ["//visibility:public"],
+)
