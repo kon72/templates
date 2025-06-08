@@ -28,5 +28,8 @@ git_override(
     patches = ["//third_party:hedron_compile_commands_fixes.diff"],
 )
 
+cc_configure = use_extension("@rules_cc//cc:extensions.bzl", "cc_configure_extension", dev_dependency = True)
+use_repo(cc_configure, "local_config_cc")
+
 non_module_deps = use_extension("//{{template.project_name}}:deps.bzl", "non_module_deps")
 use_repo(non_module_deps, "perfetto")
