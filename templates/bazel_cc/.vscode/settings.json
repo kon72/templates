@@ -6,10 +6,14 @@
     // "--log=verbose",
     "--header-insertion=iwyu",
     "--header-insertion-decorators",
-    "-j=8"
+    "-j=8",
+    "--background-index-priority=normal"
     // "--query-driver=**"
   ],
   "iwyu.compile_commands": "${workspaceFolder}/compile_commands.json",
   // "clangd.path": "/Users/kon/proj/llvm-project/build-clang-tools-extra-release/bin/clangd",
-  "clangd.path": "/Users/kon/proj/llvm-project/build-clang-tools-extra-release-pgo/tools/clang/stage2-instrumented-bins/tools/clang/stage2-bins/bin/clangd"
+  "clangd.path": "/Users/kon/proj/llvm-project/build-clang-tools-extra-release-pgo/tools/clang/stage2-instrumented-bins/tools/clang/stage2-bins/bin/clangd",
+  "python.analysis.extraPaths": [
+    "/opt/homebrew/opt/llvm/libexec/python3.13/site-packages"
+  ]
 }

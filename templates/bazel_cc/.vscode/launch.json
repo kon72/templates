@@ -8,16 +8,10 @@
       "name": "(lldb) Launch",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/bazel-bin/{{template.project_name}}/hello_world",
-      "args": [ ],
-      "cwd": "${workspaceFolder}/bazel-bin/{{template.project_name}}/hello_world.runfiles/_main",
-      // "console": "internalConsole",
-      "sourceMap": {
-        // https://github.com/vadimcn/codelldb/discussions/517
-        "proc/self/cwd": "{workspaceFolder}",
-        ".": "${workspaceFolder}"
-        // "./external": "${workspaceFolder}/bazel-{{template.project_name}}/external"
-      }
+      "program": "${workspaceFolder}/bazel-bin/{{template.project_name}}/tools/hello_world",
+      "args": [],
+      "cwd": "${workspaceFolder}/bazel-bin/{{template.project_name}}/tools/hello_world.runfiles/_main",
+      "initCommands": ["command source ${workspaceFolder}/.lldbinit"]
     }
   ]
 }
